@@ -2,7 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Employees;
+use app\models\SingupForm;
+use app\models\User;
 use Yii;
+use yii\bootstrap5\ActiveForm;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -129,5 +133,43 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionSignup()
+    {
+        if (!Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
+
+        $model = new Employees();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
+        if ($model->load(Yii::$app->request->post()) )
+        {
+            $user = new Employees();
+            $user->second_name = $model->second_name;
+            $user->name = $model->name;
+            $user->last_name = $model->second_name;
+            $user->email = $model->email;
+            $user->phone = $model->phone;
+            $user->passhash = Yii::$app->security->generatePasswordHash($model->passhash);
+            $user->status_id = $model->status_id;
+
+
+            if ($user->validate() && $user->save())
+            {
+                return $this->goHome();
+            }
+        }
+
+        return $this->render('signup',
+        [
+            'model' => $model,
+        ]);
     }
 }
