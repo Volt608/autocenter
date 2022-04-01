@@ -1,0 +1,138 @@
+main > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    background-color: #c5c5c5;
+    font-size: .9em;
+    height: 50px;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 100%;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    content: '';
+    left: 3px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    margin: 4px 4px 2px 4px;
+    background: transparent;
+}
+
+a.asc:after {
+    border-bottom: solid 7px #212529;
+    border-top-width: 0;
+}
+
+a.desc:after {
+    border-top: solid 7px #212529;
+    border-bottom-width: 0;
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding-top: 7px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+.indexpage {
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+}
+
+img.index-images {
+    filter: brightness(50%);
+    display: inline-block;
+    transition: 0.5s;
+    height: 260px;
+    width: 100%;
+}
+
+img.index-images:hover{
+    filter: brightness(60%);
+    transform: scale(1.1);
+
+}
+
+.index-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.index-images-text-top {
+    background: rgba(0,0,0,0.7);
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute;
+    font-weight: bold;
+    top: 5%;
+}
+
+
+/*.index-images-text-bottom {*/
+/*    background: rgb(13, 109, 251);*/
+/*    font-size: 1.4rem;*/
+/*    color: #ffffff;*/
+/*    position: absolute;*/
+/*    font-weight: bold;*/
+/*    width: 100%;*/
+/*    bottom: 0%;*/
+/*    right: 0%;*/
+/*    text-align: center;*/
+/*}*/
+
+
+.index-images-icons {
+    font-size: 30px;
+}
+
